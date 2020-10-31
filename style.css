@@ -1,0 +1,36 @@
+body{
+    padding: 5px;
+    margin: 5px;
+    background-color: #d0d0d0;
+    color: #303030;
+}
+a{
+    color: violet;
+}
+.hsticky{
+    /*Cores da barra*/
+    color: #ffffef;
+    background-color: #000010EE;
+    /*Comportamento dos itens*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    /*Comportamento Sticky*/
+    top: 5px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;       
+}
+header a:hover{
+    transition: 0.5s ease all;
+    color: cyan;
+}
+section{
+    margin: auto;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+

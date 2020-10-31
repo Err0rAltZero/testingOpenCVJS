@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GCeni & OpenCV: Hello OpenCV</title>
+    <link rel="stylesheet" href="/style.css">    
+    <script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script> <!--modo assíncrono-->
+</head>
+<body>
+    <header class="hsticky">
+        <h1>Tópico: Hello OpenCV.js!</h1>
+        <p><a href="/index.html">Voltar</a></p>
+    </header>
+    <section>
+        <p id="status">OpenCV.js is loading...</p>
+        <div>
+        <div class="inputoutput">
+            <img id="imageSrc" alt="No Image" />
+            <div class="caption">imageSrc <input type="file" id="fileInput" name="file" /></div>
+        </div>
+        <div class="inputoutput">
+            <canvas id="canvasOutput" ></canvas>
+            <div class="caption">canvasOutput</div>
+        </div>
+        </div>
+    </section>    
+    <script type="text/javascript">
+    let imgElement = document.getElementById('imageSrc');
+    let inputElement = document.getElementById('fileInput');
+
+    inputElement.addEventListener('change', (e) => {
+      imgElement.src = URL.createObjectURL(e.target.files[0]);
+    }, false);
+
+    imgElement.onload = function() {
+      let mat = cv.imread(imgElement);
+      cv.imshow('canvasOutput', mat);
+      mat.delete();
+    };
+
+    function onOpenCvReady() {
+      document.getElementById('status').innerHTML = 'OpenCV.js is ready.';
+    }
+    </script>
+    <script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+</body>
+</html>
+<body>
